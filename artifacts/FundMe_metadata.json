@@ -16,6 +16,10 @@
 				"type": "error"
 			},
 			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
 				"inputs": [],
 				"name": "MINIMUM_USD",
 				"outputs": [
@@ -92,6 +96,10 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -138,11 +146,11 @@
 			]
 		},
 		"fundme/fundMe.sol": {
-			"keccak256": "0x2775887d634ab24da5d5ef91e62e72685d769eb0c08aa1de9d4c44ef5809cc8f",
+			"keccak256": "0x4129fd77dd582ab2cf39667e53acc8701ac0cacb60a9a7dbbf6c82b2539b55e1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://61323397eab9f374884c58a8b09b008c5d1ff412e9c569b82d452e7ad0267de5",
-				"dweb:/ipfs/QmbKaJaJxEJsxCKkjbvithsDymSWuPP4fx1nn1YqqZZ3Fi"
+				"bzz-raw://1b94362d24080240e1bbe06bff1fa464128640d77d889efdff709f052fc41e6b",
+				"dweb:/ipfs/QmWhMfc7rnj9GxWozeYG8JJ95uVKMq21M2FA4dHVuxkLxd"
 			]
 		}
 	},

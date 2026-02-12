@@ -57,4 +57,14 @@ modifier onlyOwner(){
     if(msg.sender != i_owner){revert NotOwner();}
     _;
 }
+// what happenes if someone sends eth without sending fund function
+
+//receive
+receive() external payable {
+    fund();
+}
+//fallback
+fallback() external payable{
+fund();
+}
 }
