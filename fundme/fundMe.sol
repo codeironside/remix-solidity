@@ -9,25 +9,52 @@ pragma solidity ^0.8.31;
 
 import { PriceConverter}from "./PriceConverter.sol";
 
+error NotOwner();
 contract FundMe{
 using PriceConverter for uint256;
-    uint256 public minimumUsd =5e18;
-    address[] public founders;
-    mapping(address funder=> uint256 funded) public addressToAmountFunded;
-    
+uint256 public constant MINIMUM_USD =5e18;
+address[] public funders;
+mapping(address funder=> uint256 funded) public addressToAmountFunded;
+address public immutable i_owner;
+constructor (){
+i_owner=msg.sender;
+}
     
     function fund() public payable {
         
         // allow users tp send money
       
-        require(msg.value.getConversionRate() >= minimumUsd, "Didnt send enough eth");
-        founders.push(msg.sender);
-        addressToAmountFunded[msg.sender]  = addressToAmountFunded[msg.sender] + msg.value;
+        require(msg.value.getConversionRate() >= MINIMUM_USD, "Didnt send enough eth");
+        funders.push(msg.sender);
+        addressToAmountFunded[msg.sender]  += msg.value;
+    }
+
+    function withdraw()public onlyOwner {
+        //  for (/*starting index, ending index, step amount*/)
+        for (uint256 funderIndex = 0; funderIndex< funders.length; funderIndex++){
+                address funder = funders[funderIndex];
+                addressToAmountFunded[funder]=0;
+        }
+
+        //reset the array
+        funders = new address[](0);
+        //withdraw the funds
+
+        //transfer
+        // payable(msg.sender).transfer(address(this).balance); //capped at 2300 gas and fails at 2100 gas
+        // //send
+        // bool sendSuccess = payable(msg.sender).send(address(this).balance);
+        // require(sendSuccess, "Send Failed"); // transfer automatically reverts when it fails
+        //call //low level
+       (bool callSuccess,)=payable(msg.sender).call{value: address(this).balance}("");
+       require(callSuccess, "Call Failed");
     }
 
 
 
-    // function withdraw()public{
-
-    // }
+modifier onlyOwner(){
+    //require(msg.sender==i_owner, "Sender is not ownwer!");
+    if(msg.sender != i_owner){revert NotOwner();}
+    _;
+}
 }

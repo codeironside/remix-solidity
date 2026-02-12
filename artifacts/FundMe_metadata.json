@@ -6,6 +6,29 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "NotOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MINIMUM_USD",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -25,6 +48,13 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "fund",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -32,7 +62,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "founders",
+				"name": "funders",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -45,22 +75,22 @@
 			},
 			{
 				"inputs": [],
-				"name": "fund",
-				"outputs": [],
-				"stateMutability": "payable",
+				"name": "i_owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "minimumUsd",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -108,11 +138,11 @@
 			]
 		},
 		"fundme/fundMe.sol": {
-			"keccak256": "0x2f12e798012b9f532998b658f37d8f11f5e7f0b8b287bdb4d8c07ae1afdf0cbe",
+			"keccak256": "0x2775887d634ab24da5d5ef91e62e72685d769eb0c08aa1de9d4c44ef5809cc8f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://46bdc3cf2e1d435b70953094542dafb4eb87ad1d666024683f897ab11f8274ee",
-				"dweb:/ipfs/QmdUASkpbiGoHeRXdT7J5nXqBYhxMgfmV7DJvvzSuTNPb6"
+				"bzz-raw://61323397eab9f374884c58a8b09b008c5d1ff412e9c569b82d452e7ad0267de5",
+				"dweb:/ipfs/QmbKaJaJxEJsxCKkjbvithsDymSWuPP4fx1nn1YqqZZ3Fi"
 			]
 		}
 	},
